@@ -1,37 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="counter">
   <head>
     <title>Counter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <style type="text/css">
+      .ng-cloak {
+        display: none !important;
+      }
+    </style>
   </head>
 <body>
 
-  <div class="container">
+  <div class="container" ng-controller="MainCtrl">
     <div class="row">
       <div class="col-xs-12 text-center">
-        <p>8 is the number to beat</p>
+        <p class="ng-cloak">{{ best }} is the number to beat</p>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-6 col-xs-offset-3">
-        <button class="btn btn-default btn-lg">Add</button>
+        <button class="btn btn-default center-block" ng-click="add()">Add</button>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-6 col-xs-offset-3">
-        <ol>
-          <li>asdf</li>
-          <li>asdf</li>
-          <li>asdf</li>
-          <li>asdf</li>
-          <li>asdf</li>
+        <ol reversed>
+          <li ng-repeat="item in items" class="ng-cloak">
+            {{ item.date | date:'HH:mm' }}
+          </li>
         </ol>
       </div>
     </div>
   </div>
 
   <script type="text/javascript" src="/bower_components/angularjs/angular.js"></script>
+  <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
