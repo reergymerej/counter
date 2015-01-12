@@ -17,12 +17,12 @@
   <div class="container" ng-controller="MainCtrl">
     <div class="row">
       <div class="col-xs-12 text-center">
-        <p class="ng-cloak">{{ best }} is the number to beat</p>
+        <h1 class="ng-cloak">Top Score: {{ best.value }} <small>{{ best.date | date:'MMM d' }}</small></h1>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-6 col-xs-offset-3">
-        <button class="btn btn-default center-block" ng-click="add()">Add</button>
+        <button class="btn btn-danger btn-lg center-block" ng-click="add()" ng-disabled="adding">Add</button>
       </div>
     </div>
     <div class="row">
